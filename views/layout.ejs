@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'Student Records Manager' %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <h1><a href="/students">Student Records Manager</a></h1>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <%- body %>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Student Records Manager. All rights reserved.</p>
+  </footer>
+</body>
+</html>

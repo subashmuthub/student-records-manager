@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student List - Student Records Manager</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <h1><a href="/students">Student Records Manager</a></h1>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h2>Student List</h2>
+      <a href="/students/add" class="btn btn-primary">+ Add New Student</a>
+    </div>
+
+    <% if (students.length === 0) { %>
+      <div class="no-data">
+        <p>No students found. <a href="/students/add">Add one now</a></p>
+      </div>
+    <% } else { %>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Course</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% students.forEach(student => { %>
+              <tr>
+                <td><%= student.name %></td>
+                <td><%= student.age %></td>
+                <td><%= student.course %></td>
+                <td><%= student.email %></td>
+                <td>
+                  <a href="/students/<%= student.id %>" class="btn btn-small btn-info">View</a>
+                  <a href="/students/<%= student.id %>/edit" class="btn btn-small btn-warning">Edit</a>
+                  <a href="/students/<%= student.id %>/delete" class="btn btn-small btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Student Records Manager. All rights reserved.</p>
+  </footer>
+</body>
+</html>

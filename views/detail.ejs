@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= student.name %> - Student Records Manager</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <h1><a href="/students">Student Records Manager</a></h1>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h2>Student Details</h2>
+    </div>
+
+    <div class="detail-container">
+      <div class="detail-card">
+        <div class="detail-row">
+          <label>Name:</label>
+          <span><%= student.name %></span>
+        </div>
+
+        <div class="detail-row">
+          <label>Age:</label>
+          <span><%= student.age %></span>
+        </div>
+
+        <div class="detail-row">
+          <label>Course:</label>
+          <span><%= student.course %></span>
+        </div>
+
+        <div class="detail-row">
+          <label>Email:</label>
+          <span><%= student.email %></span>
+        </div>
+
+        <div class="detail-row">
+          <label>Student ID:</label>
+          <span><%= student.id %></span>
+        </div>
+
+        <div class="detail-row">
+          <label>Created:</label>
+          <span><%= new Date(student.created_at).toLocaleString() %></span>
+        </div>
+
+        <div class="detail-row">
+          <label>Last Updated:</label>
+          <span><%= new Date(student.updated_at).toLocaleString() %></span>
+        </div>
+
+        <div class="detail-actions">
+          <a href="/students/<%= student.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/students/<%= student.id %>/delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this student?')">Delete</a>
+          <a href="/students" class="btn btn-secondary">Back to List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Student Records Manager. All rights reserved.</p>
+  </footer>
+</body>
+</html>
